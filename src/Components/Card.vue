@@ -1,5 +1,5 @@
 <template>
-    <article class="card" :class="data.vendor">
+    <article class="card" :class="data.vendor" @click="$emit('click')">
         <img class ="wifi" src="@/../assets/wifi.svg" alt="wifi" width="40" height="40">
         <img class="chip" src="@/../assets/chip.svg" alt="chip" width="48" height="38">
         <img class="vendor" :src="require(`../../assets/${data.vendor}.svg`)" alt="Vendor">

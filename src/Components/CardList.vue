@@ -1,6 +1,6 @@
 <template>
     <section class="cards">
-        <Card v-for="card in getCards" :key="card.cardNumber" :data="card"/>
+        <Card v-for="card in getCards" :key="card.cardNumber" :data="card" @click="changeActive(card)"/>
     </section>
 </template>
 
@@ -11,6 +11,11 @@ export default {
     computed:{
         getCards(){
             return this.$store.state.cards;
+        }
+    },
+    methods:{
+        changeActive(activeCard){
+            this.$store.dispatch('getActiveCard', activeCard);
         }
     }
 }

@@ -39,7 +39,11 @@ export default new Vuex.Store({
         month : 1,
         year : 22,
         vendor : "bitcoin"
-    }
+      }
+    },
+    changeActiveCard(state, activeCard){
+      console.log(activeCard);
+      state.activeCard = activeCard;
     }
   },
   actions: {
@@ -60,6 +64,9 @@ export default new Vuex.Store({
     },
     getCardToAdd(context, newCard){
       context.commit('addNewCard' ,newCard);
+    },
+    getActiveCard(context, activeCard){
+      context.commit('changeActiveCard', activeCard);
     }
   },
   modules: {

@@ -4,6 +4,7 @@
       <h1 class="uppger-case">E-wallet</h1>
     </header>
     <main>
+      <Card class = "activeCard" v-if="getActiveCard" :data="getActiveCard"/>
       <CardList/>
     </main> 
     <nav>
@@ -15,9 +16,15 @@
 </template>
 
 <script>
+import Card from '@/Components/Card.vue'
 import CardList from '@/Components/CardList.vue'
 export default {
-  components:{CardList}
+  components:{CardList,Card},
+  computed: {
+    getActiveCard(){
+      return this.$store.state.activeCard;
+    }
+  }
 }
 </script>
 
