@@ -9,9 +9,9 @@
         </main>
 
         <nav>
-            <router-link class="upper-case nav-button" to="/" tag="button">
-            Add card
-        </router-link>
+            <router-link @click.native="addNewCard" class="upper-case nav-button" to="/" tag="button">
+                    Add card
+            </router-link>
         </nav>    
     </section>
 </template>
@@ -20,7 +20,13 @@
 import CardForm from "@/Components/CardForm"
 import Card from "@/Components/Card.vue"
 export default {
-    components: {CardForm, Card}
+    components: {CardForm, Card},
+    methods:{
+        addNewCard(){
+            let card = this.$store.state.newCard;
+            this.$store.dispatch('getCardToAdd', card);
+        }
+    }
 }
 </script>
 

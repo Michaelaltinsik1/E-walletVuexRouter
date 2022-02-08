@@ -79,12 +79,15 @@ export default {
     }
     .blockchain{
         background-color: $blockchain;
+        color: #fff;
     }
     .evil{
         background-color: $evil;
+         color: #fff;
     }
     .ninja{
         background-color: $ninja;
+         color: #fff;
     }
 
 </style>

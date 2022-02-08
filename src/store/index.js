@@ -30,6 +30,16 @@ export default new Vuex.Store({
     },
     modifyNewCardVendor(state, vendor){
       state.newCard.vendor = vendor;
+    },
+    addNewCard(state, newCard){
+      state.cards.push(newCard);
+      state.newCard = {
+        cardNumber : "",
+        cardHolder : "",
+        month : 1,
+        year : 22,
+        vendor : "bitcoin"
+    }
     }
   },
   actions: {
@@ -47,6 +57,9 @@ export default new Vuex.Store({
     },
     changeVendor(context, vendor){
       context.commit('modifyNewCardVendor', vendor);
+    },
+    getCardToAdd(context, newCard){
+      context.commit('addNewCard' ,newCard);
     }
   },
   modules: {
