@@ -1,8 +1,8 @@
 <template>
-    <article class="card">
+    <article class="card" :class ="getCard.vendor">
         <img class ="wifi" src="@/../assets/wifi.svg" alt="wifi" width="40" height="40">
         <img class="chip" src="@/../assets/chip.svg" alt="chip" width="48" height="38">
-        <img class="vendor" :class ="getCard.vendor"  :src="require(`../../assets/${getCard.vendor}.svg`)" alt="Vendor">
+        <img class="vendor" :src="require(`../../assets/${getCard.vendor}.svg`)" alt="Vendor">
         <h2 class="bank-number">{{getCard.cardNumber}}</h2>
         <div class="cardholder-container">
             <p class="upper-case card-name">Cardholder name</p>
@@ -32,6 +32,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+    $bitcoin: #FFAE34;
+    $blockchain: #8B58F9;
+    $evil: #F33355;
+    $ninja: #222222;
     .card{
         max-width: 400px;
         height: 230px;
@@ -70,5 +74,17 @@ export default {
     .date,.card-name{
         font-size: 0.65rem;
     } 
+    .bitcoin{
+        background-color: $bitcoin;
+    }
+    .blockchain{
+        background-color: $blockchain;
+    }
+    .evil{
+        background-color: $evil;
+    }
+    .ninja{
+        background-color: $ninja;
+    }
 
 </style>
