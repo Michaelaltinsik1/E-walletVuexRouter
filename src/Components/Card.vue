@@ -1,33 +1,29 @@
 <template>
-    <article class="card" :class ="getCard.vendor">
+    <article class="card" :class="data.vendor">
         <img class ="wifi" src="@/../assets/wifi.svg" alt="wifi" width="40" height="40">
         <img class="chip" src="@/../assets/chip.svg" alt="chip" width="48" height="38">
-        <img class="vendor" :src="require(`../../assets/${getCard.vendor}.svg`)" alt="Vendor">
-        <h2 class="bank-number">{{getCard.cardNumber}}</h2>
+        <img class="vendor" :src="require(`../../assets/${data.vendor}.svg`)" alt="Vendor">
+        <h2 class="bank-number">{{data.cardNumber}}</h2>
         <div class="cardholder-container">
             <p class="upper-case card-name">Cardholder name</p>
-            <h2>{{getCard.cardHolder}}</h2>
+            <h2>{{data.cardHolder}}</h2>
         </div>
         <div class="date-container">
             <p class="upper-case date">Valid thru</p>
             <h2>{{getDate}}</h2>
         </div>
-
     </article>
+    
 </template>
 
 <script>
 export default {
+    props:['data'],
     computed:{
-        getCard(){
-            return this.$store.state.newCard;
-        },
-         getDate(){
-            let card = this.$store.state.newCard;
-            return card.month + '/' + card.year;
-         }
-        
-    }
+        getDate(){
+             return this.data.month + '/' + this.data.year;
+        }       
+    } 
 }
 </script>
 

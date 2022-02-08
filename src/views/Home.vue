@@ -4,7 +4,7 @@
       <h1 class="uppger-case">E-wallet</h1>
     </header>
     <main>
-
+      <CardList/>
     </main> 
     <nav>
       <router-link class="upper-case nav-button" to="/AddCard" tag="button">
@@ -15,8 +15,9 @@
 </template>
 
 <script>
+import CardList from '@/Components/CardList.vue'
 export default {
-
+  components:{CardList}
 }
 </script>
 

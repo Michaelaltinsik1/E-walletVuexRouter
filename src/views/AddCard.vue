@@ -4,7 +4,7 @@
             <h1 class="upper-case">Add a new bank card</h1>
         </header>
         <main>
-            <Card class="card"/>
+            <Card v-if="getCard" class="card" :data="getCard"/>
             <CardForm/>
         </main>
 
@@ -21,6 +21,11 @@ import CardForm from "@/Components/CardForm"
 import Card from "@/Components/Card.vue"
 export default {
     components: {CardForm, Card},
+    computed:{
+        getCard(){
+            return this.$store.state.newCard;
+        }      
+    },
     methods:{
         addNewCard(){
             let card = this.$store.state.newCard;
